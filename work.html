@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work | Jovanne</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:ital,wght@1,600&family=JetBrains+Mono:wght@400;700&display=swap');
+
+        :root {
+            --bg-color: #ffffff;
+            --accent-color: #000000;
+            --muted-color: #6b7280;
+            --border-color: #e5e7eb;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--accent-color);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .font-heavy { font-weight: 800; }
+        .font-serif-italic { font-family: 'Playfair Display', serif; font-style: italic; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        .nav-pill {
+            background: rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        .nav-pill-active {
+            background: black;
+            color: white;
+        }
+        .btn-outline {
+            border: 1px solid black;
+            transition: all 0.3s ease;
+        }
+        .btn-outline:hover {
+            background: black;
+            color: white;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 15vw, 12rem);
+            line-height: 0.9;
+            letter-spacing: -0.05em;
+            text-transform: uppercase;
+        }
+
+        .fade-in {
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            min-width: 200px;
+            z-index: 1;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            opacity: 1;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .labs-card {
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .labs-card i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .labs-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .labs-card p {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-black selection:text-white">
+
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 px-6 py-6 flex justify-between items-center bg-white/80 backdrop-blur-md">
+        <!-- Left: Logo -->
+        <div class="flex items-center gap-3">
+            <div class="text-xl font-heavy tracking-tighter leading-none">
+                JO
+            </div>
+            <div class="hidden md:block text-[10px] uppercase tracking-widest text-zinc-500 leading-tight">
+                Software Developer<br>Building the future
+            </div>
+        </div>
+
+        <!-- Center: Navigation -->
+        <nav id="main-nav" class="hidden md:flex items-center gap-2">
+            <a href="index.html" class="nav-link-item nav-pill px-4 py-1.5 rounded-full text-xs font-medium text-zinc-600 hover:text-black transition-all duration-300">Home</a>
+            <a href="about.html" class="nav-link-item nav-pill px-4 py-1.5 rounded-full text-xs font-medium text-zinc-600 hover:text-black transition-all duration-300">About</a>
+            <a href="work.html" class="nav-link-item nav-pill-active px-4 py-1.5 rounded-full text-xs font-medium">Work</a>
+            <a href="blogs.html" class="nav-link-item nav-pill px-4 py-1.5 rounded-full text-xs font-medium text-zinc-600 hover:text-black transition-all duration-300">Blogs</a>
+            <div class="dropdown">
+                <button class="nav-pill px-4 py-1.5 rounded-full text-xs font-medium text-zinc-600 hover:text-black flex items-center gap-1 transition-all duration-300">
+                    More <i class="fa-solid fa-chevron-down text-[8px]"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="labs-card">
+                        <i class="fa-solid fa-flask"></i>
+                        <h3>Labs</h3>
+                        <p>Experimental playground & fun micro-tools</p>
+                    </div>
+                    <a href="https://github.com" class="flex items-center gap-2 text-sm font-bold text-white hover:gap-4 transition-all duration-300">
+                        <i class="fa-solid fa-link"></i> Links
+                    </a>
+                    <a href="uses.html" class="flex items-center gap-2 text-sm font-bold text-white hover:gap-4 transition-all duration-300">
+                        <i class="fa-solid fa-laptop"></i> Uses
+                    </a>
+                    <a href="guestbook.html" class="flex items-center gap-2 text-sm font-bold text-white hover:gap-4 transition-all duration-300">
+                        <i class="fa-solid fa-book"></i> Guestbook
+                    </a>
+                </div>
+            </div>
+            <a href="https://calendly.com" target="_blank" class="btn-outline px-4 py-1.5 rounded-full text-xs font-medium ml-2">Book a Call</a>
+        </nav>
+
+        <!-- Right: Icon -->
+        <div class="flex items-center">
+            <div class="w-8 h-8 rounded-full border border-zinc-200 flex items-center justify-center text-xs cursor-pointer hover:bg-zinc-100 transition-all">
+                <i class="fa-solid fa-shuffle"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Work Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none opacity-[0.05]" style="background-image: url('https://grainy-gradients.vercel.app/noise.svg');"></div>
+
+        <div class="relative z-10 text-center max-w-7xl mx-auto fade-in">
+            <h1 class="hero-title font-heavy text-black mb-8 tracking-tighter">
+                MY WORKS
+            </h1>
+
+            <div class="flex flex-col items-center gap-2">
+                <p class="text-xs md:text-sm uppercase tracking-[0.3em] text-zinc-500 font-medium">
+                    MY PROJECTS
+                </p>
+                <p class="text-3xl md:text-5xl font-serif-italic text-zinc-900 opacity-90">
+                    Explore my latest projects.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+ <!--WORK SECTION-->
+    <section id="work" class="py-32 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <p class="mono text-[10px] uppercase tracking-[0.4em] text-zinc-400 font-bold mb-4">Systems Registry</p>
+                <h2 class="text-4xl md:text-6xl font-heavy tracking-tighter">MY WORKS</h2>
+                <p class="text-zinc-500 mt-4 mono text-sm">crafting digital experiences with passion &amp; code.</p>
+            </div>
+
+            <div class="space-y-10">
+
+                <!-- Project 01 -->
+                <div class="grid md:grid-cols-2 gap-6 items-stretch">
+                    <div class="bg-zinc-50 border border-zinc-200 rounded-3xl p-8 md:p-10 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-6">
+                                <span class="mono text-[10px] uppercase tracking-widest bg-black text-white px-3 py-1 rounded-full">Web Platform</span>
+                                <span class="mono text-[10px] uppercase tracking-widest text-green-600 flex items-center gap-1.5">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-green-500 inline-block"></span> Active
+                                </span>
+                            </div>
+                            <h3 class="text-2xl md:text-3xl font-bold text-black mb-3">Project One</h3>
+                            <p class="text-zinc-600 leading-relaxed mb-6">
+                                Replace this with a short description — what the project does, the problem it solves, and any standout features.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-8">
+                                <span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[10px] mono text-zinc-600">TypeScript</span>
+                                <span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[10px] mono text-zinc-600">Next.js</span>
+                                <span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[10px] mono text-zinc-600">Supabase</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between text-[10px] mono text-zinc-400 uppercase tracking-widest mb-3">
+                                <span>Build State</span>
+                                <span class="text-zinc-700 font-bold">In Development</span>
+                            </div>
+                            <div class="flex items-center justify-between text-[10px] mono text-zinc-400 uppercase tracking-widest mb-6">
+                                <span>Module Path</span>
+                                <span class="text-zinc-700">src/modules/project-one</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center gap-2 text-xs font-bold border border-black px-4 py-2 rounded-full hover:bg-black hover:text-white transition-all">
+                                <i class="fa-brands fa-github"></i> Repository
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-black text-zinc-300 rounded-3xl p-8 md:p-10 mono text-xs leading-relaxed relative overflow-hidden">
+                        <span class="absolute top-6 right-8 text-zinc-700 text-4xl font-heavy">01</span>
+                        <p class="text-zinc-500 mb-4">// System Initialization Node</p>
+                        <p><span class="text-purple-400">import</span> { startServer } <span class="text-purple-400">from</span> <span class="text-green-400">"@/system/core"</span>;</p>
+                        <br>
+                        <p><span class="text-purple-400">const</span> config = {</p>
+                        <p class="pl-4">id: <span class="text-green-400">"project-one"</span>,</p>
+                        <p class="pl-4">title: <span class="text-green-400">"Project One"</span>,</p>
+                        <p class="pl-4">activeNodes: 3,</p>
+                        <p class="pl-4">latency: <span class="text-green-400">"12ms"</span></p>
+                        <p>};</p>
+                        <br>
+                        <p class="text-zinc-500">// Active stack logs</p>
+                        <p>[0] Loader: successfully linked TypeScript</p>
+                        <p>[1] Loader: successfully linked Next.js</p>
+                        <p>[2] Loader: successfully linked Supabase</p>
+                        <br>
+                        <p class="text-zinc-500">// Running diagnostic telemetry...</p>
+                        <p class="text-green-400">// Memory usage status: nominal</p>
+                    </div>
+                </div>
+
+                <!-- Project 02 -->
+                <div class="grid md:grid-cols-2 gap-6 items-stretch">
+                    <div class="bg-black text-zinc-300 rounded-3xl p-8 md:p-10 mono text-xs leading-relaxed relative overflow-hidden order-2 md:order-1">
+                        <span class="absolute top-6 right-8 text-zinc-700 text-4xl font-heavy">02</span>
+                        <p class="text-zinc-500 mb-4">// System Initialization Node</p>
+                        <p><span class="text-purple-400">import</span> { startServer } <span class="text-purple-400">from</span> <span class="text-green-400">"@/system/core"</span>;</p>
+                        <br>
+                        <p><span class="text-purple-400">const</span> config = {</p>
+                        <p class="pl-4">id: <span class="text-green-400">"project-two"</span>,</p>
+                        <p class="pl-4">title: <span class="text-green-400">"Project Two"</span>,</p>
+                        <p class="pl-4">activeNodes: 4,</p>
+                        <p class="pl-4">latency: <span class="text-green-400">"9ms"</span></p>
+                        <p>};</p>
+                        <br>
+                        <p class="text-zinc-500">// Active stack logs</p>
+                        <p>[0] Loader: successfully linked Python</p>
+                        <p>[1] Loader: successfully linked FastAPI</p>
+                        <p>[2] Loader: successfully linked OpenAI</p>
+                        <p>[3] Loader: successfully linked LangChain</p>
+                        <br>
+                        <p class="text-zinc-500">// Running diagnostic telemetry...</p>
+                        <p class="text-green-400">// Memory usage status: nominal</p>
+                    </div>
+
+                    <div class="bg-zinc-50 border border-zinc-200 rounded-3xl p-8 md:p-10 flex flex-col justify-between order-1 md:order-2">
+                        <div>
+                            <div class="flex items-center justify-between mb-6">
+                                <span class="mono text-[10px] uppercase tracking-widest bg-black text-white px-3 py-1 rounded-full">AI System</span>
+                                <span class="mono text-[10px] uppercase tracking-widest text-zinc-500 flex items-center gap-1.5">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-zinc-400 inline-block"></span> Completed
+                                </span>
+                            </div>
+                            <h3 class="text-2xl md:text-3xl font-bold text-black mb-3">Project Two</h3>
+                            <p class="text-zinc-600 leading-relaxed mb-6">
+                                Replace this with a short description — what the project does, the problem it solves, and any standout features.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-8">
+                                <span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[10px] mono text-zinc-600">Python</span>
+                                <span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[10px] mono text-zinc-600">FastAPI</span>
+                                <span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[10px] mono text-zinc-600">OpenAI</span>
+                                <span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[10px] mono text-zinc-600">LangChain</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between text-[10px] mono text-zinc-400 uppercase tracking-widest mb-3">
+                                <span>Build State</span>
+                                <span class="text-zinc-700 font-bold">Completed</span>
+                            </div>
+                            <div class="flex items-center justify-between text-[10px] mono text-zinc-400 uppercase tracking-widest mb-6">
+                                <span>Module Path</span>
+                                <span class="text-zinc-700">src/modules/project-two</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center gap-2 text-xs font-bold border border-black px-4 py-2 rounded-full hover:bg-black hover:text-white transition-all">
+                                <i class="fa-brands fa-github"></i> Repository
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 03 -->
+                <div class="grid md:grid-cols-2 gap-6 items-stretch">
+                    <div class="bg-zinc-50 border border-zinc-200 rounded-3xl p-8 md:p-10 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-6">
+                                <span class="mono text-[10px] uppercase tracking-widest bg-black text-white px-3 py-1 rounded-full">Automation</span>
+                                <span class="mono text-[10px] uppercase tracking-widest text-green-600 flex items-center gap-1.5">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-green-500 inline-block"></span> Active
+                                </span>
+                            </div>
+                            <h3 class="text-2xl md:text-3xl font-bold text-black mb-3">Project Three</h3>
+                            <p class="text-zinc-600 leading-relaxed mb-6">
+                                Replace this with a short description — what the project does, the problem it solves, and any standout features.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-8">
+                                <span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[10px] mono text-zinc-600">Node.js</span>
+                                <span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[10px] mono text-zinc-600">PostgreSQL</span>
+                                <span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[10px] mono text-zinc-600">Docker</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between text-[10px] mono text-zinc-400 uppercase tracking-widest mb-3">
+                                <span>Build State</span>
+                                <span class="text-zinc-700 font-bold">Open Source</span>
+                            </div>
+                            <div class="flex items-center justify-between text-[10px] mono text-zinc-400 uppercase tracking-widest mb-6">
+                                <span>Module Path</span>
+                                <span class="text-zinc-700">src/modules/project-three</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center gap-2 text-xs font-bold border border-black px-4 py-2 rounded-full hover:bg-black hover:text-white transition-all">
+                                <i class="fa-brands fa-github"></i> Repository
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-black text-zinc-300 rounded-3xl p-8 md:p-10 mono text-xs leading-relaxed relative overflow-hidden">
+                        <span class="absolute top-6 right-8 text-zinc-700 text-4xl font-heavy">03</span>
+                        <p class="text-zinc-500 mb-4">// System Initialization Node</p>
+                        <p><span class="text-purple-400">import</span> { startServer } <span class="text-purple-400">from</span> <span class="text-green-400">"@/system/core"</span>;</p>
+                        <br>
+                        <p><span class="text-purple-400">const</span> config = {</p>
+                        <p class="pl-4">id: <span class="text-green-400">"project-three"</span>,</p>
+                        <p class="pl-4">title: <span class="text-green-400">"Project Three"</span>,</p>
+                        <p class="pl-4">activeNodes: 3,</p>
+                        <p class="pl-4">latency: <span class="text-green-400">"11ms"</span></p>
+                        <p>};</p>
+                        <br>
+                        <p class="text-zinc-500">// Active stack logs</p>
+                        <p>[0] Loader: successfully linked Node.js</p>
+                        <p>[1] Loader: successfully linked PostgreSQL</p>
+                        <p>[2] Loader: successfully linked Docker</p>
+                        <br>
+                        <p class="text-zinc-500">// Running diagnostic telemetry...</p>
+                        <p class="text-green-400">// Memory usage status: nominal</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+        <!-- Detailed Footer -->
+    <footer class="bg-zinc-50 py-20 px-6 border-t border-zinc-200">
+        <div class="max-w-7xl mx-auto">
+            <div class="bg-zinc-100 border border-zinc-200 p-8 md:p-12 rounded-3xl shadow-sm">
+                <div class="grid md:grid-cols-4 gap-12 mb-20">
+                    <!-- Left Footer: Branding -->
+                    <div class="col-span-1 md:col-span-1 space-y-6">
+                        <h3 class="text-3xl font-heavy tracking-tighter">JOVANNE</h3>
+                        <p class="font-bold text-sm text-zinc-800">
+                            Understanding problems. Building systems. Delivering solutions.
+                        </p>
+                        <p class="text-sm text-zinc-500 leading-relaxed">
+                            Focused on backend engineering, intelligent automation, and creating software that performs when it matters most.
+                        </p>
+                    </div>
+
+                                        <!-- Right Footer: Links -->
+                    <div class="md:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-8">
+                        <div class="space-y-4">
+                            <h4 class="mono text-xs uppercase font-bold text-zinc-400 tracking-widest">General</h4>
+                            <ul class="space-y-2 text-sm text-zinc-600">
+                                <li><a href="index.html" class="hover:text-black transition-colors">Home</a></li>
+                                <li><a href="#blogs" class="hover:text-black transition-colors">Blogs</a></li>
+                                <li><a href="#guestbook" class="hover:text-black transition-colors">Guestbook</a></li>
+                                <li><a href="#uses" class="hover:text-black transition-colors">Uses</a></li>
+                            </ul>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="mono text-xs uppercase font-bold text-zinc-400 tracking-widest">About</h4>
+                            <ul class="space-y-2 text-sm text-zinc-600">
+                                <li><a href="about.html" class="hover:text-black transition-colors">About Me</a></li>
+                                <li><a href="index.html#work" class="hover:text-black transition-colors">Projects</a></li>
+                                <li><a href="https://calendly.com" class="hover:text-black transition-colors">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="mono text-xs uppercase font-bold text-zinc-400 tracking-widest">Legal</h4>
+                            <ul class="space-y-2 text-sm text-zinc-600">
+                                <li><a href="#" class="hover:text-black transition-colors">Privacy Policy</a></li>
+                                <li><a href="#" class="hover:text-black transition-colors">Terms & Conditions</a></li>
+                            </ul>
+                            <p class="text-[10px] text-zinc-400 leading-tight">
+                                Open source where possible. Protected where necessary. Read our <a href="#" class="underline">Privacy Policy</a> & <a href="#" class="underline">Terms</a>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t border-zinc-200 pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div class="mono text-xs text-zinc-400 space-y-1">
+                        <p>&copy; 2026 Jovanne. All rights reserved.</p>
+                        <p class="italic">Thinking beyond the interface.</p>
+                    </div>
+                    <div class="flex items-center gap-5 text-zinc-400">
+                        <a href="#" class="hover:text-black transition-colors"><i class="fa-brands fa-github text-lg"></i></a>
+                        <a href="#" class="hover:text-black transition-colors"><i class="fa-brands fa-linkedin text-lg"></i></a>
+                        <a href="#" class="hover:text-black transition-colors"><i class="fa-brands fa-instagram text-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+            </div>

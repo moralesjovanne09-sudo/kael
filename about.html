@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Jovanne</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:ital,wght@1,600&family=JetBrains+Mono:wght@400;700&display=swap');
+
+        :root {
+            --bg-color: #ffffff;
+            --accent-color: #000000;
+            --muted-color: #6b7280;
+            --border-color: #e5e7eb;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--accent-color);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .font-heavy { font-weight: 800; }
+        .font-serif-italic { font-family: 'Playfair Display', serif; font-style: italic; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        .nav-pill {
+            background: rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        .nav-pill-active {
+            background: black;
+            color: white;
+        }
+        .btn-outline {
+            border: 1px solid black;
+            transition: all 0.3s ease;
+        }
+        .btn-outline:hover {
+            background: black;
+            color: white;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 15vw, 12rem);
+            line-height: 0.9;
+            letter-spacing: -0.05em;
+            text-transform: uppercase;
+        }
+
+        .fade-in {
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            min-width: 200px;
+            z-index: 1;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            opacity: 1;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .labs-card {
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .labs-card i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .labs-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .labs-card p {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-black selection:text-white">
+
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 px-6 py-6 flex justify-between items-center bg-white/80 backdrop-blur-md">
+        <!-- Left: Logo -->
+        <div class="flex items-center gap-3">
+            <div class="text-xl font-heavy tracking-tighter leading-none">
+                JO
+            </div>
+            <div class="hidden md:block text-[10px] uppercase tracking-widest text-zinc-500 leading-tight">
+                Software Developer<br>Building the future
+            </div>
+        </div>
+
+        <!-- Center: Navigation -->
+        <nav id="main-nav" class="hidden md:flex items-center gap-2">
+            <a href="index.html" class="nav-link-item nav-pill px-4 py-1.5 rounded-full text-xs font-medium text-zinc-600 hover:text-black transition-all duration-300">Home</a>
+            <a href="about.html" class="nav-link-item nav-pill-active px-4 py-1.5 rounded-full text-xs font-medium">About</a>
+            <a href="work.html" class="nav-link-item nav-pill px-4 py-1.5 rounded-full text-xs font-medium text-zinc-600 hover:text-black transition-all duration-300">Work</a>
+            <a href="blogs.html" class="nav-link-item nav-pill px-4 py-1.5 rounded-full text-xs font-medium text-zinc-600 hover:text-black transition-all duration-300">Blogs</a>
+            <div class="dropdown">
+                <button class="nav-pill px-4 py-1.5 rounded-full text-xs font-medium text-zinc-600 hover:text-black flex items-center gap-1 transition-all duration-300">
+                    More <i class="fa-solid fa-chevron-down text-[8px]"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="labs-card">
+                        <i class="fa-solid fa-flask"></i>
+                        <h3>Labs</h3>
+                        <p>Experimental playground & fun micro-tools</p>
+                    </div>
+                    <a href="https://github.com" class="flex items-center gap-2 text-sm font-bold text-white hover:gap-4 transition-all duration-300">
+                        <i class="fa-solid fa-link"></i> Links
+                    </a>
+                    <a href="uses.html" class="flex items-center gap-2 text-sm font-bold text-white hover:gap-4 transition-all duration-300">
+                        <i class="fa-solid fa-laptop"></i> Uses
+                    </a>
+                    <a href="guestbook.html" class="flex items-center gap-2 text-sm font-bold text-white hover:gap-4 transition-all duration-300">
+                        <i class="fa-solid fa-book"></i> Guestbook
+                    </a>
+                </div>
+            </div>
+            <a href="https://calendly.com" target="_blank" class="btn-outline px-4 py-1.5 rounded-full text-xs font-medium ml-2">Book a Call</a>
+        </nav>
+
+        <!-- Right: Icon -->
+        <div class="flex items-center">
+            <div class="w-8 h-8 rounded-full border border-zinc-200 flex items-center justify-center text-xs cursor-pointer hover:bg-zinc-100 transition-all">
+                <i class="fa-solid fa-shuffle"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none opacity-[0.05]" style="background-image: url('https://grainy-gradients.vercel.app/noise.svg');"></div>
+
+        <div class="relative z-10 text-center max-w-7xl mx-auto fade-in">
+            <h1 class="hero-title font-heavy text-black mb-8 tracking-tighter">
+                ABOUT ME
+            </h1>
+
+            <div class="flex flex-col items-center gap-2">
+                <p class="text-xs md:text-sm uppercase tracking-[0.3em] text-zinc-500 font-medium">
+                    GET TO KNOW MORE ABOUT
+                </p>
+                <p class="text-3xl md:text-5xl font-serif-italic text-zinc-900 opacity-90">
+                    who i am.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Detailed Section -->
+    <section class="py-32 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-20 items-center">
+                <!-- Left Column -->
+                <div class="space-y-8">
+                    <div>
+                        <p class="mono text-[10px] uppercase tracking-widest text-zinc-400 font-bold mb-4">Little About Me</p>
+                        <h2 class="text-4xl md:text-5xl font-bold text-black tracking-tight mb-6">
+                            Nice to meet you. I'm <span class="text-black">Jovanne</span>
+                        </h2>
+                        <div class="space-y-6 text-zinc-600 leading-relaxed text-lg">
+                            <p>
+                                I build software that transforms complex ideas into scalable products. My focus lies in backend engineering, intelligent automation, and modern applications designed to solve real-world problems.
+                            </p>
+                            <p>
+                                Beyond writing code, I'm fascinated by systems—how they're designed, how they scale, and how technology can turn ambitious ideas into reliable products. From APIs and workflows to AI-powered solutions, I enjoy building things that are structured, useful, and built to last.
+                            </p>
+                            <p>
+                                My philosophy is simple: understand the problem deeply, build the solution properly, and never stop improving.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Social Icons -->
+                    <div class="flex gap-6 text-xl text-zinc-400">
+                        <a href="#" class="hover:text-black transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-black transition-colors"><i class="fa-brands fa-github"></i></a>
+                        <a href="#" class="hover:text-black transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
+
+                    <!-- Dive In Deeper Link -->
+                    <div>
+                        <a href="work.html" class="group flex items-center gap-2 text-sm font-bold text-black hover:gap-4 transition-all duration-300">
+                            Dive in deeper <i class="fa-solid fa-arrow-right text-xs transition-all"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Image -->
+                <div class="relative">
+                    <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-zinc-100 shadow-2xl">
+                        <img src="me.jpg" alt="Jovanne" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section class="py-32 px-6 bg-zinc-50">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="mono text-xs uppercase tracking-[0.4em] text-zinc-400 font-bold mb-4">Professional Path</h2>
+                <p class="text-3xl font-bold text-black">Work Experience</p>
+            </div>
+
+            <div class="relative border-l-2 border-zinc-200 ml-4 md:ml-0 pl-8 space-y-16">
+                <!-- Company: Accenture -->
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-0 w-4 h-4 bg-black rounded-full border-4 border-white"></div>
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">A</div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-black">Accenture</h3>
+                                <p class="text-sm text-zinc-500 mono">4 yrs 9 mos</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-12">
+                        <div class="relative pl-6 border-l-2 border-zinc-100">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
+                                <h4 class="text-xl font-bold text-black">Software Engineer</h4>
+                                <p class="text-xs mono text-zinc-400">Jun 2022 - Present · 4 yrs 4 mos</p>
+                            </div>
+                            <p class="text-zinc-600 leading-relaxed mb-4">
+                                SAP Integration Consultant with 4 years of experience in SAP CPI and SAP BTP Integration Suite. Skilled in designing, developing, and supporting integration solutions between SAP and non-SAP systems. Proficient in API Management, Groovy Scripting, XML/JSON transformations, and integration security standards. Strong analytical and problem-solving skills with a proven ability to deliver reliable and scalable integration solutions.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-zinc-200 text-zinc-700 rounded text-[10px] mono font-bold uppercase">SAP CPI</span>
+                                <span class="px-2 py-1 bg-zinc-200 text-zinc-700 rounded text-[10px] mono font-bold uppercase">SAP BTP</span>
+                            </div>
+                        </div>
+
+                        <div class="relative pl-6 border-l-2 border-zinc-100">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
+                                <h4 class="text-xl font-bold text-black">Senior Integration Consultant</h4>
+                                <p class="text-xs mono text-zinc-400">2022 - Present</p>
+                            </div>
+                            <p class="text-zinc-600 leading-relaxed">
+                                Worked on the TOHO Studios Japan project for 4 years, supporting the SAP CPI integration initiatives and business requirements. Gained 2 years of hands-on experience in the SAP CPI Solution Implementation (SI) / development phase, including integration design, development, testing, and deployment. Provided 2 years of SAP CPI application support, troubleshooting integration issues, monitoring interfaces, and ensuring system stability. Participated in business trips to Japan to collaborate directly with clients and project stakeholders. Worked closely with Japanese project members and cross-functional teams to deliver integration solutions and project objectives. Mentored and guided new SAP CPI team members by reviewing their tasks and providing technical support and best practices. Conducted knowledge transfer sessions and technical training for new SAP CPI team members. Prepared and presented status reports to the onshore team, including task analysis, issue discussions, and improvement recommendations. Collaborated with onshore and offshore teams to identify root causes of issues, propose solutions, and drive continuous process improvements. Demonstrated strong communication and stakeholder management skills while working in a multicultural and international project environment. Served as a Sub-Lead for the SAP CPI Team, mentoring team members, reviewing deliverables, coordinating with stakeholders, and supporting successful project execution.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Activity Section (Based on work experience.png) -->
+    <section class="py-32 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <p class="mono text-[10px] uppercase tracking-[0.4em] text-zinc-400 font-bold mb-4">My Code Journey</p>
+                <h2 class="text-4xl md:text-6xl font-bold tracking-tighter">
+                    GitHub Activity <span class="text-zinc-400">&&</span> Open Source
+                </h2>
+            </div>
+
+            <div class="bg-zinc-50 border border-zinc-200 rounded-3xl p-6 md:p-12 shadow-sm">
+                <div class="flex items-center justify-between mb-8">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-brands fa-github text-xl"></i>
+                        <span class="text-sm font-medium">1,812 contributions in the last year</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-[10px] mono text-zinc-400">
+                        <span>Less</span>
+                        <div class="flex gap-1">
+                            <div class="w-3 h-3 bg-zinc-200 rounded-sm"></div>
+                            <div class="w-3 h-3 bg-zinc-300 rounded-sm"></div>
+                            <div class="w-3 h-3 bg-zinc-400 rounded-sm"></div>
+                            <div class="w-3 h-3 bg-zinc-600 rounded-sm"></div>
+                            <div class="w-3 h-3 bg-black rounded-sm"></div>
+                        </div>
+                        <span>More</span>
+                    </div>
+                </div>
+
+                <!-- Contribution Graph Simulation -->
+                <div class="overflow-x-auto pb-4">
+                    <div class="min-w-[800px]">
+                        <div class="flex gap-1">
+                            <!-- Month Labels -->
+                            <div class="w-12 shrink-0"></div>
+                            <div class="flex-1 grid grid-cols-[repeat(53,minmax(0,1fr))] gap-1 text-[10px] text-zinc-400 mono text-center">
+                                <span class="col-span-5">Sep</span>
+                                <span class="col-span-5">Oct</span>
+                                <span class="col-span-5">Nov</span>
+                                <span class="col-span-5">Dec</span>
+                                <span class="col-span-5">Jan</span>
+                                <span class="col-span-5">Feb</span>
+                                <span class="col-span-5">Mar</span>
+                                <span class="col-span-5">Apr</span>
+                                <span class="col-span-5">May</span>
+                                <span class="col-span-5">Jun</span>
+                                <span class="col-span-5">Jul</span>
+                                <span class="col-span-5">Aug</span>
+                            </div>
+                        </div>
+                        <div class="mt-2 flex gap-1">
+                            <!-- Day Labels -->
+                            <div class="w-12 shrink-0 flex flex-col justify-between text-[10px] text-zinc-400 mono py-1">
+                                <span>Mon</span>
+                                <span>Wed</span>
+                                <span>Fri</span>
+                            </div>
+                            <!-- Grid -->
+                            <div class="flex-1 grid grid-cols-[repeat(53,minmax(0,1fr))] gap-1">
+                                <!-- Generating 7 rows of 53 squares with random grayscale colors -->
+                                <script>
+                                    const grid = document.currentScript.parentElement;
+                                    const colors = ['bg-zinc-100', 'bg-zinc-200', 'bg-zinc-300', 'bg-zinc-500', 'bg-zinc-800', 'bg-black'];
+                                    for (let i = 0; i < 7 * 53; i++) {
+                                        const square = document.createElement('div');
+                                        square.className = `aspect-square rounded-sm ${colors[Math.floor(Math.random() * colors.length)]}`;
+                                        grid.appendChild(square);
+                                    }
+                                </script>
+                                <!-- Fallback for static view if script doesn't run in editor -->
+                                <div class="hidden md:grid grid-cols-53 gap-1 w-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Note Section -->
+    <section class="py-32 px-6 bg-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="p-12 bg-zinc-50 border border-zinc-100 rounded-3xl">
+                <p class="mono text-[10px] uppercase tracking-widest text-zinc-400 font-bold mb-6">Final Note</p>
+                <p class="text-xl md:text-2xl font-serif-italic text-zinc-800 leading-relaxed italic">
+                    "Builder mindset. Backend-focused. Systems-oriented. Continuously learning, experimenting, and developing modern digital products through practical real-world projects and engineering-focused development."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Decoding Logic Section (Based on decoding.png) -->
+    <section class="py-32 px-6 bg-zinc-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <p class="mono text-[10px] uppercase tracking-[0.4em] text-zinc-400 font-bold mb-4">Behind the Curtains</p>
+                <h2 class="text-4xl md:text-6xl font-bold tracking-tighter">
+                    Decoding logic <span class="text-vibrant">&& the lyrics</span>
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- GitHub Card -->
+                <div class="bg-white border border-zinc-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-all">
+                    <div class="flex items-center gap-3 mb-8">
+                        <i class="fa-brands fa-github text-xl"></i>
+                        <span class="font-bold text-zinc-800">Jovanne's GitHub</span>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-2">
+                            <span class="text-[10px] uppercase font-bold text-zinc-400 mono">Latest Push</span>
+                            <span class="text-[10px] px-2 py-0.5 bg-green-100 text-green-700 rounded-full font-bold mono">6d ago</span>
+                        </div>
+                        <p class="text-xl font-bold text-zinc-900 leading-tight">
+                            "Made a code push to repository"
+                        </p>
+                        <div class="text-xs mono text-zinc-500 space-y-1">
+                            <p>Repo: <span class="text-zinc-800">Private work</span></p>
+                            <p>Hash: <span class="text-vibrant">private</span></p>
+                        </div>
+                    </div>
+                    <div class="mt-12 flex gap-4 text-zinc-400">
+                        <a href="#" class="hover:text-black transition-colors"><i class="fa-brands fa-github"></i></a>
+                        <a href="#" class="hover:text-black transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-black transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
+                </div>
+
+                <!-- Guestbook Card -->
+                <div class="bg-white border border-zinc-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-all">
+                    <p class="mono text-[10px] uppercase tracking-widest text-zinc-400 font-bold mb-8">Visitors</p>
+                    <h3 class="text-3xl font-bold text-zinc-900 mb-4 leading-tight">
+                        Leave your <span class="text-vibrant">signature</span>
+                    </h3>
+                    <p class="text-zinc-500 text-sm mb-12">Let me know you were here.</p>
+
+                    <div class="flex items-center justify-between">
+                        <div class="flex -space-x-3">
+                            <img src="https://i.pravatar.cc/150?u=1" class="w-8 h-8 rounded-full border-2 border-white" alt="User">
+                            <img src="https://i.pravatar.cc/150?u=2" class="w-8 h-8 rounded-full border-2 border-white" alt="User">
+                            <img src="https://i.pravatar.cc/150?u=3" class="w-8 h-8 rounded-full border-2 border-white" alt="User">
+                            <div class="w-8 h-8 rounded-full bg-zinc-100 border-2 border-white flex items-center justify-center text-[10px] text-zinc-500 font-bold">
+                                +12
+                            </div>
+                        </div>
+                        <button class="bg-black text-white px-4 py-2 rounded-full text-xs font-bold flex items-center gap-2 hover:bg-zinc-800 transition-all">
+                            <i class="fa-solid fa-plus text-[10px]"></i> Sign Guestbook
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Spotify Card -->
+                <div class="bg-white border border-zinc-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-all">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="fa-brands fa-spotify text-green-500 text-xl"></i>
+                        <span class="font-bold text-zinc-800">Last Played</span>
+                    </div>
+                    <p class="text-sm text-zinc-600 mb-8 leading-relaxed">
+                        I recently listened to <span class="text-black font-bold">Man I Need</span> by <span class="text-black font-bold">Olivia Dean</span> from the album <span class="text-black font-bold">Man I Need</span>.
+                    </p>
+                    <div class="aspect-square rounded-xl overflow-hidden bg-zinc-100 shadow-inner">
+                        <img src="https://images.unsplash.com/photo-1614613535308-eb5fbd33267c?w=800&q=80" alt="Album Art" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section (Based on lastpart.png) -->
+    <section class="py-32 px-6 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+            <div class="flex items-center gap-8 text-center md:text-left">
+                <div class="w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-xl shrink-0">
+                    <img src="me.jpg" alt="Jovanne" class="w-full h-full object-cover">
+                </div>
+                <h2 class="text-4xl md:text-7xl font-heavy tracking-tighter leading-none text-black">
+                    Let's create<br>something real.
+                </h2>
+            </div>
+            <!-- Automation Animation Logo -->
+            <div class="relative w-64 h-64 md:w-96 md:h-96 shrink-0 flex items-center justify-center" style="filter: url(#gooey);">
+                <!-- Background Blobs for Depth -->
+                <div class="absolute inset-0 pointer-events-none opacity-30">
+                    <div class="blob blob-1" style="left: 10%; top: 10%;"></div>
+                    <div class="blob blob-2" style="left: 30%; top: 40%;"></div>
+                    <div class="blob blob-3" style="left: 60%; top: 20%;"></div>
+                    <div class="blob blob-4" style="left: 50%; top: 60%;"></div>
+                </div>
+
+                <!-- Random Size Circles Logo -->
+                <div class="relative w-full h-full flex items-center justify-center">
+                    <!-- Central Large Circle -->
+                    <div class="absolute w-20 h-20 bg-black rounded-full animate-pulse opacity-90 z-10"></div>
+
+                    <!-- Randomly Sized Floating Circles -->
+                    <div class="absolute w-12 h-12 bg-zinc-400 rounded-full opacity-60 animate-bounce" style="top: 20%; left: 20%; animation-duration: 4s;"></div>
+                    <div class="absolute w-8 h-8 bg-zinc-200 rounded-full opacity-80 animate-bounce" style="top: 70%; left: 30%; animation-duration: 3s; animation-delay: 1s;"></div>
+                    <div class="absolute w-16 h-16 bg-zinc-600 rounded-full opacity-40 animate-bounce" style="top: 10%; left: 60%; animation-duration: 5s; animation-delay: 0.5s;"></div>
+                    <div class="absolute w-6 h-6 bg-white rounded-full opacity-90 animate-bounce" style="top: 50%; left: 80%; animation-duration: 3.5s; animation-delay: 2s;"></div>
+                    <div class="absolute w-10 h-10 bg-zinc-300 rounded-full opacity-50 animate-bounce" style="top: 80%; left: 60%; animation-duration: 4.5s; animation-delay: 1.5s;"></div>
+                    <div class="absolute w-4 h-4 bg-black rounded-full opacity-70 animate-bounce" style="top: 40%; left: 10%; animation-duration: 3s; animation-delay: 0.8s;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Footer -->
+    <footer class="bg-zinc-50 py-20 px-6 border-t border-zinc-200">
+        <div class="max-w-7xl mx-auto">
+            <div class="bg-zinc-100 border border-zinc-200 p-8 md:p-12 rounded-3xl shadow-sm">
+                <div class="grid md:grid-cols-4 gap-12 mb-20">
+                    <!-- Left Footer: Branding -->
+                    <div class="col-span-1 md:col-span-1 space-y-6">
+                        <h3 class="text-3xl font-heavy tracking-tighter">JOVANNE</h3>
+                        <p class="font-bold text-sm text-zinc-800">
+                            Understanding problems. Building systems. Delivering solutions.
+                        </p>
+                        <p class="text-sm text-zinc-500 leading-relaxed">
+                            Focused on backend engineering, intelligent automation, and creating software that performs when it matters most.
+                        </p>
+                    </div>
+
+                    <!-- Right Footer: Links -->
+                    <div class="md:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-8">
+                        <div class="space-y-4">
+                            <h4 class="mono text-xs uppercase font-bold text-zinc-400 tracking-widest">General</h4>
+                            <ul class="space-y-2 text-sm text-zinc-600">
+                                <li><a href="index.html" class="hover:text-black transition-colors">Home</a></li>
+                                <li><a href="#blogs" class="hover:text-black transition-colors">Blogs</a></li>
+                                <li><a href="#guestbook" class="hover:text-black transition-colors">Guestbook</a></li>
+                                <li><a href="#uses" class="hover:text-black transition-colors">Uses</a></li>
+                            </ul>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="mono text-xs uppercase font-bold text-zinc-400 tracking-widest">About</h4>
+                            <ul class="space-y-2 text-sm text-zinc-600">
+                                <li><a href="about.html" class="hover:text-black transition-colors">About Me</a></li>
+                                <li><a href="index.html#work" class="hover:text-black transition-colors">Projects</a></li>
+                                <li><a href="https://calendly.com" class="hover:text-black transition-colors">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="mono text-xs uppercase font-bold text-zinc-400 tracking-widest">Legal</h4>
+                            <ul class="space-y-2 text-sm text-zinc-600">
+                                <li><a href="#" class="hover:text-black transition-colors">Privacy Policy</a></li>
+                                <li><a href="#" class="hover:text-black transition-colors">Terms & Conditions</a></li>
+                            </ul>
+                            <p class="text-[10px] text-zinc-400 leading-tight">
+                                Open source where possible. Protected where necessary. Read our <a href="#" class="underline">Privacy Policy</a> & <a href="#" class="underline">Terms</a>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t border-zinc-200 pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div class="mono text-xs text-zinc-400 space-y-1">
+                        <p>&copy; 2026 Jovanne. All rights reserved.</p>
+                        <p class="italic">Thinking beyond the interface.</p>
+                    </div>
+                    <div class="flex items-center gap-5 text-zinc-400">
+                        <a href="#" class="hover:text-black transition-colors"><i class="fa-brands fa-github text-lg"></i></a>
+                        <a href="#" class="hover:text-black transition-colors"><i class="fa-brands fa-linkedin text-lg"></i></a>
+                        <a href="#" class="hover:text-black transition-colors"><i class="fa-brands fa-instagram text-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
